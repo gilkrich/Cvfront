@@ -15,7 +15,7 @@ import sectemp  from './images/sectemp.png'
 import html2canvas from 'html2canvas';
 import jsPDF from "jspdf";
 import Firsttemplate from './Firsttemplate';
-import Secondtemp from './secondtemp';
+import Secondtemp from './Secondtemp';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
