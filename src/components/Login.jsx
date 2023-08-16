@@ -18,7 +18,7 @@ const Login = ({ usersarray }) => {
     const email = e.target[0].value
     const password = e.target[1].value
     try{
-      const response = await axios.post("http://localhost:3007/users/login", { email: email, password: password })
+      const response = await axios.post(import.meta.env.VITE_SERVER+"/users/login", { email: email, password: password })
       const logg = response.data
       localStorage.setItem('token', logg.token)
       setrefresh(!refresh)

@@ -18,7 +18,7 @@ const Signup = ({usersarray,refresh,setrefresh}) => {
           alert("password must be at least 6 signs and less then 12 signs")
         }
         else if (password.length >= 6 && password.length <= 12 && password == verify) {
-          const users = await axios.get("http://localhost:3007/users/isthere", { email: email })
+          const users = await axios.get(import.meta.env.VITE_SERVER+"/users/isthere", { email: email })
           const usersdata = usersarray.findIndex(obj => obj.email == email)
           if (usersdata != -1) {
             alert(" email is already taken")
@@ -26,7 +26,7 @@ const Signup = ({usersarray,refresh,setrefresh}) => {
             if (email.includes("@") && email.includes(".com")) {
               const halfemail = email.split("@")[1].split(".")[0];
               if ((halfemail == "gmail" || halfemail == "walla")) {
-                const newUser = await axios.post("http://localhost:3007/users/register", { username: username, email: email, password: password })
+                const newUser = await axios.post(import.meta.env.VITE_SERVER+"/users/register", { username: username, email: email, password: password })
                 console.log(newUser);
                 navigate('/')
               }

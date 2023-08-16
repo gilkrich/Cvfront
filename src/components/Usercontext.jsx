@@ -17,12 +17,12 @@ const Usercontext = ({ children }) => {
     async function check() {
       if (localStorage.getItem('token')) {
         const tok = localStorage.getItem('token');
-        const response = await axios.post("http://localhost:3007/users/istoken", { token: tok });
+        const response = await axios.post(import.meta.env.VITE_SERVER+"/users/istoken", { token: tok });
         if (!response.data.personinfo) {
           alert('dont have info')
         } else {
 
-          const personcv = await axios.post("http://localhost:3007/cv/getcv", { id: response.data._id });
+          const personcv = await axios.post(import.meta.env.VITE_SERVER+"/cv/getcv", { id: response.data._id });
           if (personcv) {
             setloggedinfo(personcv.data.personinfo);
           } else {
