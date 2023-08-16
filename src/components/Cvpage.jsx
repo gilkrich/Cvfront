@@ -54,7 +54,7 @@ const cvpage = ({ usersarray }) => {
       setlang(true)
       setdeg(true)
       if (moreexp && morelang && moreskills && hasdeg && Object.keys(loggeduser).length > 0) {
-        const newcv = await axios.post("http://localhost:3007/cv/create", {
+        const newcv = await axios.post(import.meta.env.VITE_SERVER+"/cv/create", {
           id: loggeduser._id,
           fullname: e.target[0].value,
           img: uploadedData,
