@@ -1,0 +1,141 @@
+#second-template{
+    width: 595px;
+    height: 842px;
+    background-color: bisque;
+    display: flex;
+}
+
+.column-one{ 
+     width: 36%;
+     background-color: #323b4c;
+     display: flex;
+     flex-direction: column;
+}
+
+.column-two{
+   width: 64%;
+   background-color: #ffffff;
+   display: flex;
+   flex-direction: column;
+}
+
+.image-cont{
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-main-image{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.contact-div-sec{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.white-hr{
+    background-color: white;
+    height: 1px;
+    border: 0;
+    margin-right: 0;
+}
+
+.titles{
+    color: white;
+    margin: 0;
+    margin-right: 70px;
+}
+
+.contact-info-cont{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin-top: 8px;
+}
+.contact-info-ul-sec{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin-top: 8px;
+    padding: 0;
+    margin-right: 32px;
+}
+
+.contact-info-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.text-size-small-white{
+  font-size: x-small;
+  color: white;
+}
+
+
+.text-size-small-black{
+  font-size: xx-small;
+  color: black;
+  overflow-wrap: break-word
+}
+
+.small-title-sec{
+    color: white;
+}
+
+.info-big-cont-sec{
+    width: 85%;
+}
+
+.exp-cont-sec{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.exp-split-cont{
+    display: flex;
+    justify-content: center;
+}
+
+.circle{
+    width: 6px;
+    height: 6px;
+    border-color: black;
+    background-color: white;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: thin;
+}
+
+.split-first{
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.split-second{
+    width: 70%;
+}
+
+.circle-line{
+    width: 0.5px;
+    height: 90px;
+    background-color: black;
+}
+
+.school-cont-sec{
+    width: 85%;
+}
+
+.education-cont-sec{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

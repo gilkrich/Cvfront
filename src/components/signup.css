@@ -1,0 +1,71 @@
+.sign-container{
+    height: 900px;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: linear-gradient( 135deg, #F05F57 10%, #360940 100%); */
+  background-image: radial-gradient( circle farthest-corner at -8.9% 51.2%,  rgba(255,124,0,1) 0%, rgba(255,124,0,1) 15.9%, rgba(255,163,77,1) 15.9%, rgba(255,163,77,1) 24.4%, rgb(33, 46, 54) 24.5%, rgb(34, 48, 56) 66% );
+
+}
+
+.form-sign{
+    height: 600px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: whitesmoke;
+    align-items: center;
+}
+
+.input{
+    width: 250px;
+    height: 40px;
+}
+
+.sign-button{
+    width: 180px;
+    height: 37px;
+    border: 0;
+    color: white;
+}
+
+.sign-button:hover{
+    border-style: solid;
+    border-color: red;
+    color: white;
+}
+
+.glass-effect{
+    background: linear-gradient(135deg ,rgba(255,255,255,0.1),rgba(255,255,255,0)); 
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: (20px);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    border: 1px solig rgba(255,255,255,0.18);
+    border-radius: 32px;
+}
+
+.sign-up-input{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+}
+
+
+.sign-up-input::placeholder {
+color: white;
+}
+.sign-up-input:focus::placeholder {
+color:rgb(12, 143, 219);
+}
+
+
+.sign-up-input:focus{
+    border: solid;
+    border-bottom-color:rgb(12, 143, 219);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  outline: none;
+    
+}

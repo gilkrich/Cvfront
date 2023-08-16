@@ -1,0 +1,74 @@
+.login-container{
+    height: 900px;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: radial-gradient( circle farthest-corner at 50.4% 50.5%,  rgba(251,32,86,1) 0%, rgba(135,2,35,1) 90% ); */
+  /* background-image: linear-gradient( 135deg, #F05F57 10%, #360940 100%); */
+  /* background-image: radial-gradient( circle 1023px at 3.1% 6.9%,  rgba(255,255,255,1) 0%, rgba(205,40,83,1) 74.9% );*/
+  background-image: radial-gradient( circle farthest-corner at -8.9% 51.2%,  rgb(255, 38, 0) 0%, rgb(158, 24, 24) 15.9%, rgb(255, 77, 77) 15.9%, rgb(255, 77, 77) 24.4%, rgb(218, 225, 230) 24.5%, rgb(234, 235, 236) 66% );
+}
+
+.form{
+    height: 500px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* background-color: whitesmoke; */
+    align-items: center;
+}
+
+.input{
+    width: 250px;
+    height: 40px;
+}
+
+.login-button-real{
+    width: 180px;
+    height: 37px;
+    border: 0;
+    font-size: larger;
+}
+
+.login-button-real:hover{
+    border-style: solid;
+    border-color: red;
+    opacity: 0.8;
+}
+
+.glass-effect{
+    background: linear-gradient(135deg ,rgba(255,255,255,0.1),rgba(255,255,255,0)); 
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: (20px);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    border: 1px solig rgba(255,255,255,0.18);
+    border-radius: 32px;
+}
+
+.login-input{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+
+.login-input::placeholder {
+color: white;
+}
+
+.login-input:focus::placeholder {
+color:rgb(12, 143, 219);
+}
+
+
+.login-input:focus{
+    border: solid;
+    border-bottom-color:rgb(12, 143, 219);
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  outline: none;
+    
+}
