@@ -124,7 +124,7 @@ const cvpage = ({ usersarray }) => {
         setUploadedData(loggeduserinfo[current].img)
       }
       if (moreexp && morelang && moreskills && hasdeg && Object.keys(loggeduser).length > 0) {
-        const newcv = await axios.patch("http://localhost:3007/cv/patchcv", {
+        const newcv = await axios.patch(import.meta.env.VITE_SERVER+"/cv/patchcv", {
           id: loggeduserinfo[current]._id,
           fullname: e.target[0].value,
           img:  !choose?loggeduserinfo[current].img : uploadedData,
@@ -184,7 +184,7 @@ const cvpage = ({ usersarray }) => {
 
   async function deleteresume() {
     try {
-      const newcv = await axios.patch("http://localhost:3007/cv/deletecv", { userid: loggeduser._id, cvid: loggeduserinfo[current]._id })
+      const newcv = await axios.patch(import.meta.env.VITE_SERVER+"/cv/deletecv", { userid: loggeduser._id, cvid: loggeduserinfo[current]._id })
       setrefresh(!refresh)
     }
     catch (err) {
