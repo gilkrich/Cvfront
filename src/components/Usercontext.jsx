@@ -29,14 +29,14 @@ const Usercontext = ({ children }) => {
             setloggedinfo([])
           }
         }
-        console.log(response.data);
         setlogged(response.data);
       }
     }
     check();
   }, [refresh])
-
-
+  
+  
+  console.log(loggeduser);
   return (
     <Context.Provider value={{ loggeduser, loggeduserinfo, refresh, setrefresh, setlogged,current, setcurrent}}>
       {children}
