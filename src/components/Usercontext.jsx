@@ -29,6 +29,7 @@ const Usercontext = ({ children }) => {
             setloggedinfo([])
           }
         }
+        console.log(response.data);
         setlogged(response.data);
       }
     }
