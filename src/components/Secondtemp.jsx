@@ -4,9 +4,11 @@ import jsPDF from "jspdf";
 import { useContext } from 'react'
 import './secondtemp.css'
 import { Context } from './Usercontext';
+import download from './images/download.png'
+import { useState } from 'react'
 
 const Secondtemp = () => {
-
+    const [isHovered, setIsHovered] = useState(false);
     const { loggeduser } = useContext(Context)
     const { loggeduserinfo } = useContext(Context)
     const { refresh } = useContext(Context)
@@ -37,7 +39,7 @@ const Secondtemp = () => {
 
     return (
         <div style={{marginTop:'60px'}}>
-            <div id='second-template'>
+            {loggeduserinfo.length > 0 &&<div id='second-template'>
                 <div className='column-one'>
                     <div className='image-cont'>
                         <img src={loggeduserinfo[current]?.img} alt="" className='profile-main-image' />
@@ -193,8 +195,11 @@ const Secondtemp = () => {
                     </div>
 
                 </div>
-            </div>   
-            {loggeduserinfo.length > 0 && <button onClick={()=>convertHtmlToPdf()}>Generate PDF</button>}
+            </div>   }
+            <div className='pdf-button-cont' style={{marginTop:'80px'}}>
+            {loggeduserinfo.length > 0 && <button  onClick={()=>convertHtmlToPdf()} onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)} className='pdf-button'>{isHovered?<img src={download} alt="" width={'20px'}/>:'Generate PDF'}</button>}
+            </div>
         </div>
     )
 }
