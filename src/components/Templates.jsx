@@ -44,15 +44,23 @@ const Templates = ({ usersarray }) => {
         <div className='main-container1'>
 
             <h2>Your cv's</h2>
+
+            {loggeduserinfo.length<1&&<div className='empty-data-cont'>
+            <h3>You didnt fill any of your info</h3>
+            <Link className='nav-link' to='/makecv'>  <button className='cv-list-buttons'>Make Cv</button></Link>
+            </div>}
+
+
             <div className='choose-cv-sec'>
                 {loggeduserinfo.map((item, index) => (
-                    <button onClick={() => setcurrent(index)}>{loggeduserinfo[index].expirence1.proffsion}</button>
+                    <button className='cv-list-buttons' onClick={() => setcurrent(index)}>{loggeduserinfo[index].desiredprofession}</button>
                 ))}
             </div>
 
 
             <div>
-                <h1>Choose a template</h1>
+                {loggeduserinfo.length>0&&<h1>Choose a template</h1>}
+                {loggeduserinfo.length<1&&<h1>Templates for example</h1>}
             </div>
             <hr />
             <div className='templates-cont'>

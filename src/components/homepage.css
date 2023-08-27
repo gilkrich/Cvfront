@@ -14,7 +14,14 @@
     margin-bottom: 70px;
   flex-wrap: wrap;
  row-gap: 40px;
+}
 
+.part-one{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 18px;
 }
 
 .abs-one{
@@ -36,12 +43,31 @@
   align-items: center;
 }
 
+.step-number{
+    width: 40px;
+    font-size: larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: rgb(236, 95, 95);
+     border-radius: 50%;
+    color: white;
+}
+
 .create-cv-button{
     width: 140px;
     height: 40px;
-    background-color: rgb(207, 23, 23);
+    /* background-color: rgb(207, 23, 23); */
+    background-color: rgb(204, 67, 67);
     border: 0;
     color: white;
+    transition: border-radius 0.3s ease-in-out;
+}
+
+.create-cv-button:hover{
+    cursor: pointer;
+    border-radius: 20px;
 }
 
 .whats-good-cont{

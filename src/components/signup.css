@@ -2,13 +2,14 @@
     height: 900px;
    display: flex;
   justify-content: center;
-  align-items: center;
   /* background-image: linear-gradient( 135deg, #F05F57 10%, #360940 100%); */
-  background-image: radial-gradient( circle farthest-corner at -8.9% 51.2%,  rgba(255,124,0,1) 0%, rgba(255,124,0,1) 15.9%, rgba(255,163,77,1) 15.9%, rgba(255,163,77,1) 24.4%, rgb(33, 46, 54) 24.5%, rgb(34, 48, 56) 66% );
+  /* background-image: radial-gradient( circle farthest-corner at -8.9% 51.2%,  rgba(255,124,0,1) 0%, rgba(255,124,0,1) 15.9%, rgba(255,163,77,1) 15.9%, rgba(255,163,77,1) 24.4%, rgb(33, 46, 54) 24.5%, rgb(34, 48, 56) 66% ); */
+  background-image: radial-gradient( circle farthest-corner at -8.9% 51.2%,  rgb(255, 38, 0) 0%, rgb(158, 24, 24) 15.9%, rgb(255, 77, 77) 15.9%, rgb(255, 77, 77) 24.4%, rgb(218, 225, 230) 24.5%, rgb(234, 235, 236) 66% );
 
 }
 
 .form-sign{
+    margin-top: 50px;
     height: 600px;
     width: 450px;
     display: flex;
@@ -25,14 +26,17 @@
 
 .sign-button{
     width: 180px;
+    background-color: rgb(228, 105, 105);
+    color: white;
     height: 37px;
     border: 0;
-    color: white;
+    font-size: larger;
+    transition: border-radius 0.3s ease-in-out;
 }
 
 .sign-button:hover{
-    border-style: solid;
-    border-color: red;
+    cursor: pointer;
+    border-radius: 20px;
     color: white;
 }
 

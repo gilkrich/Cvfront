@@ -11,8 +11,12 @@ import instagram from './images/instagram.png'
 import linkdin from './images/linkdin.png'
 import github from './images/github.png'
 import twitter from './images/twitter.png'
+import profile from './images/maleprofileicon.png'
+import whiteprofile from './images/whiteprofile.png'
+
 
 const Layout = ({ usersarray }) => {
+  const [showarrow,setshowarrow] = useState(false)
   const { loggeduser, setlogged } = useContext(Context)
   const { loggeduserinfo } = useContext(Context)
   const { refresh } = useContext(Context)
@@ -31,6 +35,7 @@ const Layout = ({ usersarray }) => {
   return (
     <div>
       <nav className='nav-bar'>
+             <div className='second-nav'>
 
         <div className='logo-cont'>
           <h1 className='logo-one'>CV</h1>
@@ -40,14 +45,18 @@ const Layout = ({ usersarray }) => {
         <div className='link-side-cont'>
 
           <div className='pages-links-cont'>
-            <Link to='makecv' className='nav-link' style={{ fontSize: 'x-large' }}>{Object.keys(loggeduserinfo).length > 0 ? 'my cv' : 'make cv'}</Link>
-            <Link to='template' className='nav-link' style={{ fontSize: 'x-large' }}>template</Link>
-            <Link className='nav-link' to='home' style={{ fontSize: 'x-large' }}>Homepage</Link>
+            {Object.keys(loggeduser).length > 0 &&<Link to='makecv' className='nav-link' style={{ fontSize: 'large' }}>{Object.keys(loggeduserinfo).length > 0 ? 'My-cv' : 'Make-cv'}</Link>}
+           {Object.keys(loggeduser).length > 0 && <Link to='template' className='nav-link' style={{ fontSize: 'large' }}>Template</Link>}
+            <Link className='nav-link' to='home' style={{ fontSize: 'large' }}>Homepage</Link>
           </div>
-
+           
           {Object.keys(loggeduser).length > 0 && <div className='sign-out-div'>
-            <h4>hello {loggeduser.username}</h4>
-            <button className='sign-out-button' onClick={() => signout()}>sign-out</button>
+            {/* <h4>hello {loggeduser.username}</h4> */}
+            <div className='profile-icon-cont'>
+            <img src={whiteprofile} alt=""  width={'37px'} onClick={()=>{setshowarrow(!showarrow)}}/> 
+            {showarrow&&<button className='sign-out-button' onClick={() => signout()}>sign-out</button>}
+            </div>
+
             {/* {Object.keys(loggeduserinfo).length > 0 && <img src={loggeduserinfo[current].img} alt="" className='profile-img' />}
             {Object.keys(loggeduserinfo).length < 1 && <img src='https://icon-library.com/images/blank-person-icon/blank-person-icon-7.jpg' alt="" className='profile-img' />} */}
           </div>}
@@ -69,6 +78,7 @@ const Layout = ({ usersarray }) => {
           </div>}
 
         </div>
+            </div>
       </nav>
       <Outlet />
 
