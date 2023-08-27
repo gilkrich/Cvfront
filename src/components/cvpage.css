@@ -13,7 +13,8 @@
 .main-container {
     display: flex;
     justify-content: center;
-    background-color: gainsboro;
+    /* background-color: gainsboro; */
+    background-color: rgb(233, 230, 230);
     flex-direction: column;
     align-items: center;
 }
@@ -175,9 +176,16 @@ background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%); */
     width: 100px;
     height: 30px;
     border-width:medium;
+    border: 0;
     border-color: rgb(163, 3, 3);
     background-color: rgb(236, 71, 71);
     color: whitesmoke;
+    transition: border-radius 0.2s ease-in-out;
+}
+
+.cv-list-buttons:hover{
+    border-radius: 15px;
+    cursor: pointer;
 }
 
 .delete-cont{
@@ -193,4 +201,7 @@ background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%); */
     background-color: rgb(236, 71, 71);
     border-color: rgb(163, 3, 3);
     color: whitesmoke;
+}
+
+.cv-title{
 }

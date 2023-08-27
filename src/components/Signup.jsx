@@ -49,13 +49,13 @@ const Signup = ({usersarray,refresh,setrefresh}) => {
   return (
     <div className='sign-container'>
        <form onSubmit={(e) => sumbit(e)} className='form-sign glass-effect'>   
-       <h1 style={{color:'white'}}>SIGN-UP</h1>
+       <h1>SIGN-UP</h1>
           <input type="text"  placeholder='username' className='input .sign-up-input'/>
           <input type="text"  placeholder='email' className='input .sign-up-input'/>
           <input type="text"  placeholder='password' className='input .sign-up-input'/>
           <input type="text"  placeholder='verify password' className='input .sign-up-input'/>
-        <button type='submit' className='sign-button glass-effect'>submit</button>
-        <h4 style={{color:'white'}}>
+        <button type='submit' className='sign-button'>submit</button>
+        <h4>
           already a member?<Link to='/' style={{color:'black'}}>Login here</Link>
         </h4>
         

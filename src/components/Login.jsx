@@ -4,6 +4,8 @@ import './login.css'
 import { useContext } from 'react'
 import { Context } from './Usercontext';
 import { Outlet, Link, useParams, useNavigate } from 'react-router-dom'
+import TextField from '@mui/material/TextField';
+
 
 
 
@@ -36,9 +38,10 @@ const Login = ({ usersarray }) => {
     <div className='login-container'>
       <form onSubmit={(e) => loginform(e)} className='form glass-effect'>
         <h1 style={{}}>LOGIN</h1>
+        {/* <TextField id="outlined-basic" label="Email" variant="outlined" style={padding:'0px'}/> */}
         <input type="text" placeholder='email' className='input .login-input' />
         <input type="text" placeholder='password' className='input .login-input' />
-        <button type='submit' className='login-button-real glass-effect'>login</button>
+        <button type='submit' className='login-button-real'>login</button>
         <h4 style={{}}>
           Dont have an account?<Link to='sign' style={{color:'black'}}>Sign up here</Link>
         </h4>

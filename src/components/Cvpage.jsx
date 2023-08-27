@@ -45,7 +45,6 @@ const cvpage = ({ usersarray }) => {
     setUploadedData(data)
   }
 
-
   async function submit(e) {
     e.preventDefault()
     try {
@@ -56,6 +55,7 @@ const cvpage = ({ usersarray }) => {
       if (moreexp && morelang && moreskills && hasdeg && Object.keys(loggeduser).length > 0) {
         const newcv = await axios.post(import.meta.env.VITE_SERVER+"/cv/create", {
           id: loggeduser._id,
+          desiredprofession : e.target[36].value,
           fullname: e.target[0].value,
           img: uploadedData,
           adress: e.target[3].value,
@@ -102,6 +102,7 @@ const cvpage = ({ usersarray }) => {
 
         }
         )
+
         setcreatenew(false)
         setUploadedData('')
         setrefresh(!refresh)
@@ -126,6 +127,7 @@ const cvpage = ({ usersarray }) => {
       if (moreexp && morelang && moreskills && hasdeg && Object.keys(loggeduser).length > 0) {
         const newcv = await axios.patch(import.meta.env.VITE_SERVER+"/cv/patchcv", {
           id: loggeduserinfo[current]._id,
+          desiredprofession : e.target[36].value,
           fullname: e.target[0].value,
           img:  !choose?loggeduserinfo[current].img : uploadedData,
           adress: e.target[3].value,
@@ -194,18 +196,25 @@ const cvpage = ({ usersarray }) => {
 
   return (
     <div className='main-container'>
-      
+        
+        <h1 style={{marginTop:'50px'}}>Choose your cv</h1>
+
       <div className='cv-list-cont'>
         {loggeduserinfo.map((item, index) => (
-          <button key={index} className='cv-list-buttons' onClick={() => { setcurrent(index), setedit(false), setcreatenew(false) }}>{loggeduserinfo[index].expirence1.proffsion}</button>
+          <button key={index} className='cv-list-buttons' onClick={() => { setcurrent(index), setedit(false), setcreatenew(false) }}>{loggeduserinfo[index].desiredprofession}</button>
         ))}
       </div>
 
+      <div style={{marginBottom:'50px'}}>
+       {loggeduserinfo.length <1&&<h1 className='cv-title'>Fill the form to match your desired job</h1>}
+       {loggeduserinfo.length >0&&<h1 className='cv-title'>Edit your information </h1>}
+      </div>
+
       {(createnew || !loggeduserinfo.length > 0) && <form onSubmit={(e) => submit(e)} className='form2'>
-        <h2>Your info</h2>
+        <h2>Personal info</h2>
         <div className='input-cont-one'>
           <div className='input-cont'>
-            <h4 className='small-header'>Full name</h4>
+            <h4 className='small-header'>Full-name</h4>
             <input type="text" placeholder='fullname' name='fullname' required={true} className='small-input' />
           </div>
           <div className='input-cont'>
@@ -214,7 +223,7 @@ const cvpage = ({ usersarray }) => {
             {/* <input type="text" placeholder='profile-image' className='small-input' /> */}
           </div>
           <div className='input-cont'>
-            <h4 className='small-header'>age</h4>
+            <h4 className='small-header'>Age</h4>
             <input type="text" placeholder='age' required={true} maxLength={3} minLength={2} className='small-input' />
           </div>
         </div>
@@ -235,7 +244,7 @@ const cvpage = ({ usersarray }) => {
         <h2>main skills</h2>
         <h3 className='small-header'>Write your proffesion skills</h3>
         <div className='input-cont'>
-          <h4 className='small-header'>Skill-one</h4>
+          <h4 className='small-header'>Skill</h4>
           <input type="text" placeholder='skill' required={true} className='small-input' />
         </div>
         <button onClick={(e) => { e.preventDefault(), setskills(!moreskills) }} className='plus-button'>{!moreskills ? "+" : '-'}
@@ -243,48 +252,49 @@ const cvpage = ({ usersarray }) => {
         {moreskills && <div style={{ width: '100%', marginBottom: '20px' }}>
           <div className='input-cont-one'>
             <div className='input-cont'>
-              <h4 className='small-header'>Skill-two</h4>
-              <input type="email" placeholder='skill' className='small-input' />
+              <h4 className='small-header'>Skill</h4>
+              <input type="text" placeholder='skill' className='small-input' />
             </div>
             <div className='input-cont'>
-              <h4 className='small-header'>Skill-three</h4>
-              <input type="email" placeholder='skill' className='small-input' />
+              <h4 className='small-header'>Skill</h4>
+              <input type="text" placeholder='skill' className='small-input' />
             </div>
           </div>
           <div className='input-cont-one'>
             <div className='input-cont'>
-              <h4 className='small-header'>Skill-four</h4>
-              <input type="email" placeholder='skill' className='small-input' />
+              <h4 className='small-header'>Skill</h4>
+              <input type="text" placeholder='skill' className='small-input' />
             </div>
             <div className='input-cont'>
-              <h4 className='small-header'>Skill-five</h4>
-              <input type="email" placeholder='skill' className='small-input' />
+              <h4 className='small-header'>Skill</h4>
+              <input type="text" placeholder='skill' className='small-input' />
             </div>
           </div>
         </div>}
+        <h3 className='small-header'>Write known languages</h3>
         <div className='input-cont'>
-          <h4 className='small-header'>lang 1 </h4>
+          <h4 className='small-header'>language</h4>
           <input type="text" required={true} placeholder='mainlang' className='small-input' />
         </div>
         <button onClick={(e) => { e.preventDefault(), setlang(!morelang) }} className='plus-button'>{!morelang ? "+" : '-'}</button>
         {morelang && <div style={{ width: '100%' }}>
           <div className='input-cont-one'>
             <div className='input-cont'>
-              <h4 className='small-header'>lang 2</h4>
+              <h4 className='small-header'>language</h4>
               <input type="text" placeholder='mainlang' className='small-input' />
             </div>
             <div className='input-cont'>
-              <h4 className='small-header'>lang3</h4>
+              <h4 className='small-header'>language</h4>
               <input type="text" placeholder='mainlang' className='small-input' />
             </div>
           </div>
           <div className='input-cont-one'>
             <div className='input-cont'>
-              <h4 className='small-header'>lang 4</h4>
+              <h4 className='small-header'>language</h4>
               <input type="text" placeholder='mainlang' className='small-input' />
             </div>
             <div className='input-cont'>
-              <h4 className='small-header'>lang 5</h4>
+              <h4 className='small-header'>language</h4>
               <input type="text" placeholder='mainlang' className='small-input' />
             </div>
           </div>
@@ -304,7 +314,7 @@ const cvpage = ({ usersarray }) => {
         </div>
         <div>
           <h4 className='small-header'>job-info</h4>
-          <textarea name="" id="" cols="20" rows="4" maxLength={155} required={true} className='exp-input' ></textarea>
+          <textarea name="" id="" cols="20" rows="4" maxLength={200} required={true} className='exp-input' ></textarea>
         </div>
         <button onClick={(e) => { e.preventDefault(), setexp(!moreexp) }} className='plus-button'>{!moreexp ? "+" : '-'}</button>
 
@@ -321,7 +331,7 @@ const cvpage = ({ usersarray }) => {
           </div>
           <div>
             <h4 className='small-header'>job-info</h4>
-            <textarea name="" id="" cols="20" rows="4" maxLength={155} className='exp-input' ></textarea>
+            <textarea name="" id="" cols="20" rows="4" maxLength={200} className='exp-input' ></textarea>
           </div>
           <div className='input-cont-one'>
             <div className='input-cont'>
@@ -335,7 +345,7 @@ const cvpage = ({ usersarray }) => {
           </div>
           <div>
             <h4 className='small-header'>job-info</h4>
-            <textarea name="" id="" cols="20" rows="4" maxLength={155} className='exp-input'></textarea>
+            <textarea name="" id="" cols="20" rows="4" maxLength={200} className='exp-input'></textarea>
           </div>
         </div>}
 
@@ -360,18 +370,23 @@ const cvpage = ({ usersarray }) => {
           <div className='input-cont-two'>
             <div className='input-cont'>
               <h4 className='small-header'>school name</h4>
-              <input type="text" placeholder='scool' className='small-input' required={true} />
+              <input type="text" placeholder='scool' className='small-input'  />
             </div>
             <div className='input-cont'>
               <h4 className='small-header'>years</h4>
-              <input type="text" placeholder='type' className='small-input' required={true} />
+              <input type="text" placeholder='type' className='small-input'  />
             </div>
           </div>
           <div>
             <h4 className='small-header'>more</h4>
-            <textarea name="" id="" cols="20" rows="4" maxLength={155} className='exp-input' required={true}></textarea>
+            <textarea name="" id="" cols="20" rows="4" maxLength={155} className='exp-input' ></textarea>
           </div>
         </div>}
+        <div className='input-cont'>
+            <h4 className='small-header'>Your desired profession</h4>
+            <input type="text" placeholder='proffesion' required={true} className='small-input' />
+          </div>
+      
         <button type="submit" className='submit-button' onClick={() => notlogged()}>{moreexp && moreskills && morelang && hasdeg ? 'confirm new' : 'new'}</button>
       </form>}
 
@@ -492,7 +507,7 @@ const cvpage = ({ usersarray }) => {
           </div>
         </div>}
         <h3 className='small-header'>Objective</h3>
-        <textarea name="" id="" cols="30" rows="7" maxLength={155} required={true} defaultValue={loggeduserinfo[current].objective} className='text-area-big'></textarea>
+        <textarea name="" id="" cols="30" rows="7" maxLength={200} required={true} defaultValue={loggeduserinfo[current].objective} className='text-area-big'></textarea>
         <h2 >Expirence</h2>
         <div className='input-cont-one'>
           <div className='input-cont'>
@@ -506,7 +521,7 @@ const cvpage = ({ usersarray }) => {
         </div>
         <div>
           <h4 className='small-header'>job-info</h4>
-          <textarea name="" id="" cols="20" rows="4" maxLength={155} required={true} defaultValue={loggeduserinfo[current].expirence1.info} className='exp-input' ></textarea>
+          <textarea name="" id="" cols="20" rows="4" maxLength={200} required={true} defaultValue={loggeduserinfo[current].expirence1.info} className='exp-input' ></textarea>
         </div>
         <button onClick={(e) => { e.preventDefault(), setexp(!moreexp) }} className='plus-button'>{!moreexp ? "+" : '-'}</button>
 
@@ -523,7 +538,7 @@ const cvpage = ({ usersarray }) => {
           </div>
           <div>
             <h4 className='small-header'>job-info</h4>
-            <textarea name="" id="" cols="20" rows="4" maxLength={155} defaultValue={loggeduserinfo[current].expirence2.info} className='exp-input' ></textarea>
+            <textarea name="" id="" cols="20" rows="4" maxLength={200} defaultValue={loggeduserinfo[current].expirence2.info} className='exp-input' ></textarea>
           </div>
           <div className='input-cont-one'>
             <div className='input-cont'>
@@ -537,7 +552,7 @@ const cvpage = ({ usersarray }) => {
           </div>
           <div>
             <h4 className='small-header'>job-info</h4>
-            <textarea name="" id="" cols="20" rows="4" maxLength={155} defaultValue={loggeduserinfo[current].expirence3.info} className='exp-input'></textarea>
+            <textarea name="" id="" cols="20" rows="4" maxLength={200} defaultValue={loggeduserinfo[current].expirence3.info} className='exp-input'></textarea>
           </div>
         </div>}
 
@@ -562,25 +577,29 @@ const cvpage = ({ usersarray }) => {
           <div className='input-cont-two'>
             <div className='input-cont'>
               <h4 className='small-header'>school name</h4>
-              <input type="text" placeholder='scool' defaultValue={loggeduserinfo[current].degree.school} className='small-input' required={true} />
+              <input type="text" placeholder='scool' defaultValue={loggeduserinfo[current].degree.school} className='small-input'  />
             </div>
             <div className='input-cont'>
               <h4 className='small-header'>years</h4>
-              <input type="text" placeholder='type' defaultValue={loggeduserinfo[current].degree.type} className='small-input' required={true} />
+              <input type="text" placeholder='type' defaultValue={loggeduserinfo[current].degree.type} className='small-input'  />
             </div>
           </div>
           <div>
             <h4 className='small-header'>more</h4>
-            <textarea name="" id="" cols="20" rows="4" maxLength={155} className='exp-input' defaultValue={loggeduserinfo[current].degree.bonus} required={true}></textarea>
+            <textarea name="" id="" cols="20" rows="4" maxLength={155} className='exp-input' defaultValue={loggeduserinfo[current].degree.bonus} ></textarea>
           </div>
         </div>}
+        <div className='input-cont'>
+            <h4 className='small-header'>Your desired profession</h4>
+            <input type="text" placeholder='proffesion' required={true} defaultValue={loggeduserinfo[current].desiredprofession} className='small-input' />
+          </div>
         <button type="submit" className='submit-button'>{moreexp && moreskills && morelang && hasdeg ? 'confirm edit' : 'edit'}</button>
       </form>}
 
 
 
       {loggeduserinfo.length > 0 && (!edit && !createnew) && <div className='show-info-cont'>
-        <div style={{ textAlign: 'center' }}><h1>your info</h1></div>
+        {/* <div style={{ textAlign: 'center' }}><h1>your info</h1></div> */}
         <div className='show-info-cont-second'>
           <div className='profile-info-cont'>
             <img src={loggeduserinfo[current]?.img} alt="https://icon-library.com/images/blank-person-icon/blank-person-icon-7.jpg" />

@@ -1,5 +1,5 @@
 .main-container1 {
-    background-color: gainsboro;
+    background-color: #eff2f9;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -195,5 +195,11 @@ li {
 .back-button:hover{
      transform: scale(1.1);
      cursor: pointer;
+}
 
+.empty-data-cont{
+     display: flex;
+     flex-direction: column;
+     row-gap: 15px;
+     align-items: center;
 }
