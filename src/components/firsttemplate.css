@@ -138,3 +138,30 @@ li {
 .big-text{
     font-size: x-small;
 }
+
+.pdf-button-cont{
+    display: flex;
+    min-height: 100px;
+    width: 100%;
+    justify-content: center;
+}
+
+.pdf-button{
+    padding: 23px 23px;
+    width: 130px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(221, 78, 78);
+    color: white;
+    border: 0;
+    transition: width 0.2s ease-in-out ,height 0.2s ease-in-out ,border-radius 0.2s ease-in-out;
+}
+
+.pdf-button:hover{
+   cursor: pointer;
+   width: 60px;
+   height: 60px;
+   border-radius: 50%;
+}
